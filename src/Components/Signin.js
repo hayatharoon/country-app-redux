@@ -36,10 +36,7 @@ function Signin() {
     } else {
       alert('Add data successfully');
 
-      console.log(userSignIn);
       store.dispatch(signin(userSignIn));
-      //// localStorage.setItem('countryData', JSON.stringify([userSignIn]));
-      console.log(store.getState());
       history('/');
     }
   }

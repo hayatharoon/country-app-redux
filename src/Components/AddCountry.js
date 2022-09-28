@@ -40,7 +40,6 @@ function AddCountry() {
       history('/');
     }
   }
-  console.log(country);
 
   return (
     <>

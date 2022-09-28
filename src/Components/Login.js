@@ -22,10 +22,8 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // const getCountryData = localStorage.getItem('countryData');
-    // console.log(getCountryData);
+
     const currState = store.getState();
-    console.log(currState);
     if (userlogin.email === '') {
       alert('Email is required');
     } else if (!userlogin.email.includes('@')) {
@@ -35,7 +33,6 @@ function Login() {
     } else {
       if (currState.authReducer.allUsers && currState.authReducer.allUsers.length) {
         const data = currState.authReducer.allUsers;
-        console.log(data);
         const userLogin = data.filter((element, key) => {
           return element.email === userlogin.email && element.password === userlogin.password;
         });
@@ -43,10 +40,9 @@ function Login() {
           alert('Invalid user details !');
         } else {
           alert('User login Successfully');
+          store.dispatch(login(userLogin));
+          history('/');
         }
-        store.dispatch(login(currState.authReducer));
-        // console.log(userLogin);
-        history('/');
       }
     }
   }

@@ -2,7 +2,13 @@
 const initialState = {
   currentUser: null,
   loggedIn: false,
-  allUsers: [],
+  allUsers: [
+    {
+      username: 'admin',
+      email: 'admin@gmail.com',
+      password: '12345',
+    },
+  ],
 };
 
 //* ---Action Types---:
@@ -37,6 +43,7 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         loggedIn: true,
+        currentUser: action.payload,
       };
     case LOGOUT:
       return {
