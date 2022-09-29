@@ -31,7 +31,7 @@ function Login() {
     } else if (userlogin.password === '') {
       alert('Password must required');
     } else {
-      if (currState.authReducer.allUsers && currState.authReducer.allUsers.length) {
+      if (currState?.authReducer?.allUsers) {
         const data = currState.authReducer.allUsers;
         const userLogin = data.filter((element, key) => {
           return element.email === userlogin.email && element.password === userlogin.password;
